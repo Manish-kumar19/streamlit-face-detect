@@ -1,6 +1,7 @@
-import streamlit as st
-import cv2
-import numpy as np
+
+import cv2, streamlit as st
+st.write(cv2.__file__)
+st.write(getattr(cv2, "__version__", "no version")) import numpy as np
 from PIL import Image
 
 # ---------------------------------
