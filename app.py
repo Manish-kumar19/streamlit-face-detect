@@ -1,9 +1,7 @@
-import cv2
-import streamlit as st
-import numpy as np
-from PIL import Image
+import cv2, streamlit as st
 st.write(cv2.__file__)
 st.write(getattr(cv2, "__version__", "no version"))
+st.write([n for n in dir(cv2) if "Cascade" in n])
 
 # ---------------------------------
 # 1. Streamlit Page Configuration
