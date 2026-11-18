@@ -1,4 +1,8 @@
-import cv2, streamlit as st
+import streamlit as st
+import cv2
+import numpy as np
+from PIL import Image
+import os
 st.write(cv2.__file__)
 st.write(getattr(cv2, "__version__", "no version"))
 st.write([n for n in dir(cv2) if "Cascade" in n])
@@ -29,11 +33,15 @@ st.divider()
 # ---------------------------------
 # 3. Load Haar Cascade Classifier
 # ---------------------------------
-cascade_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+cascade_path = os.path.join(
+    cv2.data.haarcascades,
+    "haarcascade_frontalface_default.xml"
+)
+
 face_cascade = cv2.CascadeClassifier(cascade_path)
 
 if face_cascade.empty():
-    st.error("Could not load the Haar cascade file.")
+    st.error("Error: Could not load Haar Cascade XML file.")
     st.stop()
 
 # ---------------------------------
