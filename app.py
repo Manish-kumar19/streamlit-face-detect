@@ -29,16 +29,11 @@ st.divider()
 # ---------------------------------
 # 3. Load Haar Cascade Classifier
 # ---------------------------------
-
-cascade_path = (
-    cv2.data.haarcascades +
-    "haarcascade_frontalface_default.xml"
-)
-
+cascade_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 face_cascade = cv2.CascadeClassifier(cascade_path)
 
 if face_cascade.empty():
-    st.error("Error loading Haar Cascade XML file.")
+    st.error("Could not load the Haar cascade file.")
     st.stop()
 
 # ---------------------------------
